@@ -9,21 +9,23 @@
 		$user = db::query("SELECT * FROM user WHERE phone = '$phone' and phone is not null");
 		if (mysqli_num_rows($user)) {
 			$user_d = mysqli_fetch_assoc($user);
-			if ($user_d['password'] == $password && $password && $user_d['type_aut'] != 'code') {
+			if ($user_d['password'] == $password || $user_d['code'] == $password) {
 				$_SESSION['uph'] = $phone;
 				$_SESSION['ups'] = $password;
 				setcookie('uph', $phone, time() + 3600*24*30*6, '/');
 				setcookie('ups', $password, time() + 3600*24*30*6, '/');
 				echo 'yes';
-			} else if ($user_d['code'] == $code) {
-				if (!$password) $ubd = db::query("UPDATE `user` SET `password` = '123456', `type_aut` = 'code' WHERE phone = '$phone'");
-				$password = '123456';
-				$_SESSION['uph'] = $phone;
-				$_SESSION['ups'] = $password;
-				setcookie('uph', $phone, time() + 3600*24*30*6, '/');
-				setcookie('ups', $password, time() + 3600*24*30*6, '/');
-				echo 'yes';
-			} else echo 'password';
+			} echo 'password';
+
+			// else if ($user_d['code'] == $code) {
+			// 	if (!$password) $ubd = db::query("UPDATE `user` SET `password` = '123456', `type_aut` = 'code' WHERE phone = '$phone'");
+			// 	$password = '123456';
+			// 	$_SESSION['uph'] = $phone;
+			// 	$_SESSION['ups'] = $password;
+			// 	setcookie('uph', $phone, time() + 3600*24*30*6, '/');
+			// 	setcookie('ups', $password, time() + 3600*24*30*6, '/');
+			// 	echo 'yes';
+			// } else 
 
 			// if ($user_d['sms']) { } else {
 				// $mess = "Dr. Modir | Тексеру коды: $code";
