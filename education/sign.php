@@ -39,7 +39,7 @@
 						<i class="fal fa-user form_icon"></i>
 					</div>
 					<div class="form_im form_im_ps">
-						<input type="password" class="form_txt password" placeholder="Пароль" data-lenght="6" data-sel="0" />
+						<input type="password" class="form_txt password" placeholder="Пароль" data-lenght="4" data-sel="0" />
 						<i class="fal fa-lock-alt form_icon"></i>
 						<i class="fal fa-eye-slash form_icon_pass"></i>
 					</div>
