@@ -15,7 +15,7 @@
 				setcookie('uph', $phone, time() + 3600*24*30*6, '/');
 				setcookie('ups', $password, time() + 3600*24*30*6, '/');
 				echo 'yes';
-			} echo 'password';
+			} else echo 'password';
 
 			// else if ($user_d['code'] == $code) {
 			// 	if (!$password) $ubd = db::query("UPDATE `user` SET `password` = '123456', `type_aut` = 'code' WHERE phone = '$phone'");
