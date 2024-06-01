@@ -75,34 +75,34 @@ $(document).ready(function() {
 	
 	
 	// phone sms
-	$('.phone_inp').on('input', function() {
-		phone = $(this)
-		if (phone.attr('data-sel') == 1) {
-			$.ajax({
-				url: "/education/get.php?phone_sms",
-				type: "POST",
-				dataType: "html",
-				data: ({ phone: phone.attr('data-val') }),
-				success: function(data){
-					if (data == 'none') mess('Не нашел тебя в базе, может ты не тот номер написал')
-					else if (data == 'yes') {
-						mess('Отправил вам код, попробуйте написать код ниже')
-						$('.form_im_cd').removeClass('dsp_n')
-						$('.btn_sign_in span').html('Вход')
-					} else if (data == 'pass') {
-						$('.form_im_ps').removeClass('dsp_n')
-						$('.btn_sign_in span').html('Вход')
-					} else if (data == 'code') {
-						$('.form_im_cd').removeClass('dsp_n')
-						$('.btn_sign_in span').html('Вход')
-					}
-					console.log(data);
-				},
-				beforeSend: function(){ },
-				error: function(data){ console.log(data) }
-			})
-		}
-	});
+	// $('.phone_inp').on('input', function() {
+	// 	phone = $(this)
+	// 	if (phone.attr('data-sel') == 1) {
+	// 		$.ajax({
+	// 			url: "/education/get.php?phone_sms",
+	// 			type: "POST",
+	// 			dataType: "html",
+	// 			data: ({ phone: phone.attr('data-val') }),
+	// 			success: function(data){
+	// 				if (data == 'none') mess('Не нашел тебя в базе, может ты не тот номер написал')
+	// 				else if (data == 'yes') {
+	// 					mess('Отправил вам код, попробуйте написать код ниже')
+	// 					$('.form_im_cd').removeClass('dsp_n')
+	// 					$('.btn_sign_in span').html('Вход')
+	// 				} else if (data == 'pass') {
+	// 					$('.form_im_ps').removeClass('dsp_n')
+	// 					$('.btn_sign_in span').html('Вход')
+	// 				} else if (data == 'code') {
+	// 					$('.form_im_cd').removeClass('dsp_n')
+	// 					$('.btn_sign_in span').html('Вход')
+	// 				}
+	// 				console.log(data);
+	// 			},
+	// 			beforeSend: function(){ },
+	// 			error: function(data){ console.log(data) }
+	// 		})
+	// 	}
+	// });
 
 
 
