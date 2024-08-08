@@ -17,7 +17,7 @@
    <div class="">
       <div class="bl_c">
          <div class="bonus">
-            <h4 class="bonus_name">Бонус сабақ БЛОГ/h4>
+            <h4 class="bonus_name">Бонус сабақ БЛОГ</h4>
             <div class="bonus_c">
                <div class="bonus_l">
                   <div class="player_o7" data-plyr-provider="youtube" data-plyr-embed-id="YtehnEPImFI"></div>
