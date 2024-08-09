@@ -71,7 +71,7 @@
       </div>
    <? endif ?>
 
-   <div class="<?//=($_GET['v']?'ooi':'')?>">
+   <div class="<?=($_GET['v']?'ooi':'')?>">
    
       <!--  -->
       <div class="blo3 blo35">
