@@ -72,18 +72,18 @@
 	--grs9: rgba(226,226,226,.9);
 
 	/* color 1 */
-	--cl: #368AD0;
-	--cl0: rgba(54,138,208,.0);
-	--cl1: rgba(54,138,208,.1);
-	--cl2: rgba(54,138,208,.2);
-	--cl3: rgba(54,138,208,.3);
-	--cl4: rgba(54,138,208,.4);
-	--cl5: rgba(54,138,208,.5);
-	--cl6: rgba(54,138,208,.6);
-	--cl7: rgba(54,138,208,.7);
-	--cl8: rgba(54,138,208,.8);
-	--cl9: rgba(54,138,208,.9);
-	--cl05: rgba(54,138,208,.05);
+	--cl: #1E91D6; 
+	--cl0: rgba(30,145,214,.0);
+	--cl05: rgba(30,145,214,.05);
+	--cl1: rgba(30,145,214,.1);
+	--cl2: rgba(30,145,214,.2);
+	--cl3: rgba(30,145,214,.3);
+	--cl4: rgba(30,145,214,.4);
+	--cl5: rgba(30,145,214,.5);
+	--cl6: rgba(30,145,214,.6);
+	--cl7: rgba(30,145,214,.7);
+	--cl8: rgba(30,145,214,.8);
+	--cl9: rgba(30,145,214,.9);
 
 	/* color 3 */
 	--cm: #E93333;
@@ -315,7 +315,7 @@ p{font-size:16px}
 	position: relative;
 	width: 0;
 	height: 100%;
-	background: var(--cm);
+	background: var(--cl);
 	animation: preloader_i 1.5s cubic-bezier(0.800, 0.095, 0.300, 0.880);
 }
 @keyframes preloader_i {
