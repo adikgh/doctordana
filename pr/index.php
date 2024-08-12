@@ -30,7 +30,7 @@
                   <i class="fal fa-calendar-alt"></i>
                   <div class="blo1_tsic">                     
                      <p>Басталуы:</p>
-                     <p>12.08.24</p>
+                     <p>14.08.24</p>
                   </div>
                </div>
                <div class="blo1_tsi">
