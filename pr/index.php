@@ -42,8 +42,8 @@
                </div>
             </div>
             <div class="blo1_t">
-               <h1 class="blo1_tof">Күніне небәрі 30-40 минут <br> уақыт бөлу арқылы сәбиіңізге <br> сау болашақ силаңыз!</h1>
-               <p>Баланың дені сау болуы үшін массаж емес <br> <b>моторлы дамуын білу қажет.</b></p>
+               <h1 class="blo1_tof">10 клинаканы талдап разбор жасаймын, топовый докторлар практикумына қосыл</h1>
+               <!-- <p>Баланың дені сау болуы үшін массаж емес <br> <b>моторлы дамуын білу қажет.</b></p> -->
                <div class="blo1_tb">
                   <a class="btn" href="#price">Қатысқым келеді</a>
                </div>
@@ -111,13 +111,13 @@
                   </ul>
                   <div class="blo8_cip">
                      <div class="blo8_cipo">
-                        <div class="blo8_cipoi blo8_cipoi_gg">55 000 тенге</div>
+                        <div class="blo8_cipoi blo8_cipoi_gg">37 000 тенге</div>
                      </div>
                      <div class="blo8_cipo">
-                        <div class="blo8_cipoi">37 000 тенге</div>
+                        <div class="blo8_cipoi">35 000 тенге</div>
                      </div>
                      <div class="blo8_cip_btn">
-                        <div class="btn btn_ukl" data-price="37 000" data-price2="0">Төлем жасаймын</div>
+                        <div class="btn btn_ukl" data-price="35 000" data-price2="0">Төлем жасаймын</div>
                      </div>
                   </div>
                </div>
