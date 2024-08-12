@@ -114,10 +114,10 @@
                         <div class="blo8_cipoi blo8_cipoi_gg">55 000 тенге</div>
                      </div>
                      <div class="blo8_cipo">
-                        <div class="blo8_cipoi">40 000 тенге</div>
+                        <div class="blo8_cipoi">37 000 тенге</div>
                      </div>
                      <div class="blo8_cip_btn">
-                        <div class="btn btn_ukl" data-price="40 000" data-price2="0">Төлем жасаймын</div>
+                        <div class="btn btn_ukl" data-price="37 000" data-price2="0">Төлем жасаймын</div>
                      </div>
                   </div>
                </div>
