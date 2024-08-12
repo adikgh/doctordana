@@ -110,12 +110,18 @@
                      <li><i class="fal fa-gift"></i><span>“Педиатр ретінде өз блогыңды дамытып, табыс көзіне айналдыру” бонус сыйлық сабақ</span></li>
                   </ul>
                   <div class="blo8_cip">
-                     <div class="blo8_cipo">
-                        <div class="blo8_cipoi blo8_cipoi_gg">37 000 тенге</div>
-                     </div>
-                     <div class="blo8_cipo">
-                        <div class="blo8_cipoi">35 000 тенге</div>
-                     </div>
+                     <? if (@$_GET['price']): ?>
+                        <div class="blo8_cipo">
+                           <div class="blo8_cipoi blo8_cipoi_gg">37 000 тенге</div>
+                        </div>
+                        <div class="blo8_cipo">
+                           <div class="blo8_cipoi">35 000 тенге</div>
+                        </div>
+                     <? else: ?>
+                        <div class="blo8_cipo">
+                           <div class="blo8_cipoi">37 000 тенге</div>
+                        </div>
+                     <? endif ?>
                      <div class="blo8_cip_btn">
                         <div class="btn btn_ukl" data-price="35 000" data-price2="0">Төлем жасаймын</div>
                      </div>
