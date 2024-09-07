@@ -17,53 +17,40 @@
 
 	<div class="ucours">
 
-		<? include "tabs.php"; ?>
+		<? // include "tabs.php"; ?>
 
 		<div class="uc_d">
 			<? while($pay_course_d = mysqli_fetch_assoc($pay_course)): ?>
 				<? $course_id = $pay_course_d['course_id']; ?>
 				<? $course_d = fun::course($course_id); ?>
-				<? if ($course_d['info']) $course_d = array_merge($course_d, fun::course_info($course_d['id'])); ?>
-				<a class="uc_di" href="../course/?id=<?=$course_id?>">
-					<div class="bq_ci_img"><div class="lazy_img" data-src="/assets/uploads/course/<?=$course_d['img']?>"></div></div>
-					<div class="uc_dit">
-						<div class="bq_ci_info"><div class="bq_cih"><?=$course_d['name_'.$lang]?></div></div>
-						<div class="uc_dib">
-							<? if ($course_d['info']): ?>
-								<? if ($pay_course_d['view']) $precent = round(100 / ($course_d['item'] / $pay_course_d['view'])); ?>
-								<div class="uc_dib_ckb">
-									<div class="uc_dib_ckb2">
-										<div class="itemci_ls">
-											<? if ($course_d['item']): ?> <div class="itemci_lsi"><?=($pay_course_d['view']?$pay_course_d['view'].'/':'')?><?=$course_d['item']?> уроков</div> <? endif ?>
-											<? if ($course_d['test']): ?> <div class="itemci_lsi"><?=$course_d['test']?> тесты</div> <? endif ?>
-											<? if ($course_d['assig']): ?> <div class="itemci_lsi"><?=$course_d['assig']?> задачи</div> <? endif ?>
-										</div>
-										<? if ($pay_course_d['view']): ?> <div class="itemci_lsr"><?=$precent?>%</div> <? endif ?>
-									</div>
-									<? if ($pay_course_d['view']): ?>
-										<div class="uitemci_time_b">
-											<div class="uitemci_time_b2" style="width:<?=$precent?>%"></div>
-										</div>
-									<? endif ?>
-								</div>
-								<? if (!$pay_course_d['view']): ?>
+				<? if ($pay_course_d['ins_dt'] != null && $pay_course_d['end_dt'] != null) $result = intval((strtotime($pay_course_d['end_dt']) - strtotime(date("d.m.Y"))) / (60*60*24)); ?>
+				<? // if ($course_d['info']) $course_d = array_merge($course_d, fun::course_info($course_d['id'])); ?>
+
+				<? if (!$course_d['arh']): ?>
+
+					<a class="uc_di" href="../course/?id=<?=$course_id?>">
+						<div class="bq_ci_img"><div class="lazy_img" data-src="/assets/uploads/course/<?=$course_d['img']?>"></div></div>
+						<div class="uc_dit">
+							<div class="bq_ci_info"><div class="bq_cih"><?=$course_d['name_'.$lang]?></div></div>
+							<div class="uc_dib">
+								<? if ($result > 0): ?>
 									<div class="bq_ci_btn">
-										<div class="btn btn_grs btn_dd">
+										<div class="btn btn_grs">
+											<span>Начать урок</span>
 											<i class="fal fa-long-arrow-right"></i>
 										</div>
 									</div>
-								<? endif ?>
-							<? else: ?>
-								<div class="bq_ci_btn">
-									<div class="btn btn_grs">
-										<span>Начать урок</span>
-										<i class="fal fa-long-arrow-right"></i>
+								<? else: ?>
+									<div class="bq_ci_btn">
+										<div class="btn btn_grs">Доступ окончен</div>
 									</div>
-								</div>
-							<? endif ?>
+								<? endif ?>
+							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+
+				<? endif ?>
+				
 			<? endwhile ?>
 		</div>
 

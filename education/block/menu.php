@@ -149,7 +149,7 @@
 			</a>
 			<a class="utopc_s" href="/education/my/">Курсы</a>
 			<a class="utopc_s" href="/education/course/?id=<?=$course_id?>"><?=$course_d['name_'.$lang]?></a>
-			<? if ($pod_menu_name == 'users'): ?> <div class="utopc_s">Ученики</div> <? endif ?>
+			<? if (@$pod_menu_name == 'users'): ?> <div class="utopc_s">Ученики</div> <? endif ?>
 			<? if ($menu_name == 'lesson'): ?> <div class="utopc_s"><?=$lesson['name_'.$lang]?></div> <? endif ?>
 		</div>
 	<? endif ?>

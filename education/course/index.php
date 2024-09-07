@@ -24,7 +24,7 @@
 	} else $buy = 0;
 		
 	// Тариф деректері
-	if (!$buy || !$pack_id) {
+	if (!$buy || !@$pack_id) {
 		if (mysqli_num_rows($pack_all)) {
 			if (isset($_GET['pack_id']) || $_GET['pack_id'] != '') {
 				$pack_id = $_GET['pack_id'];
@@ -38,7 +38,7 @@
 	}
 
 	// Блок деректері
-	if ($pack_id) $cblock = db::query("select * from course_block where pack_id = '$pack_id' order by number asc");
+	if (@$pack_id) $cblock = db::query("select * from course_block where pack_id = '$pack_id' order by number asc");
 	else $cblock = db::query("select * from course_block where course_id = '$course_id' order by number asc");
 
 	
@@ -66,23 +66,7 @@
 						</div>
 					</div>
 
-					<div class="uitemci_ckb">
-						<? if ($buy_d['view']) $precent = round(100 / ($course_d['item'] / $buy_d['view'])); ?>
-						<div class="uitemci_ckb2">
-							<div class="itemci_ls">
-								<? if ($course_d['arh']): ?> <div class="itemci_lsi itemci_lsi_arh">Курс архивте</div> <? endif ?>
-								<? if ($course_d['item']): ?> <div class="itemci_lsi"><?=($buy_d['view']?$buy_d['view'].'/':'')?><?=$course_d['item']?> сабақ</div> <? endif ?>
-								<? if ($course_d['test']): ?> <div class="itemci_lsi"><?=$course_d['test']?> тест</div> <? endif ?>
-								<? if ($course_d['assig']): ?> <div class="itemci_lsi"><?=$course_d['assig']?> тапсырма</div> <? endif ?>
-							</div>
-							<? if ($buy_d['view']): ?> <div class=""><?=$precent?>%</div> <? endif ?>
-						</div>
-						<? if ($buy_d['view']): ?>
-							<div class="uitemci_time_b">
-								<div class="uitemci_time_b2" style="width:<?=$precent?>%"></div>
-							</div>
-						<? endif ?>
-					</div>
+					<div class="uitemci_ckb"></div>
 
 					<? if ($buy): ?>
 						<div class="uitemci_tt">
@@ -96,17 +80,23 @@
 							?>
 							<div class="uitemci_time">
 								<div class="uitemci_time_t">
-									<div class="">Басы: <?=date("d-m-Y", strtotime($buy_d['ins_dt']))?></div>
-									<div class="">Соңы: <?=date("d-m-Y", strtotime($buy_d['end_dt']))?></div>
+									<div class="">Старт: <?=date("d-m-Y", strtotime($buy_d['ins_dt']))?></div>
+									<div class="">Конец: <?=date("d-m-Y", strtotime($buy_d['end_dt']))?></div>
 								</div>
 								<div class="uitemci_time_t">
 									<div class="">
-										<? if ($result > 0): ?> Аяқталуына: <?=$result?> күн бар
-										<? else: ?> Аяқталғанына: <?=abs($result)?> күн болды <? endif ?>
+										<? if ($result > 0): ?> До конца: <?=$result?> день
+										<? else: ?> Окончено: <?=abs($result)?> день назад <? endif ?>
 									</div>
 									<div class=""><?=$precent?>%</div>
 								</div>
 								<div class="uitemci_time_b"><div class="uitemci_time_b2" style="width:<?=$precent?>%"></div></div>
+
+								<? if ($result <= 0): ?>
+									<br>
+									<h6>Напишите менеджеру, чтобы придлит курс</h6><br>
+									<a class="btn" href="https://wa.me/<?=$site['whatsapp']?>?text=Хочу придлит курс">Написать</a>
+								<? endif ?>
 							</div>
 						</div>
 					<? endif ?>
@@ -136,8 +126,8 @@
 					<div class="cours_ls">
 						<? while ($block = mysqli_fetch_assoc($cblock)): ?>
 
-							<?	$block_id = $block['id']; ?>
-							<?	$item_d = db::query("select * from course_lesson where block_id = '$block_id' order by number asc"); ?>
+							<? $block_id = $block['id']; ?>
+							<? $item_d = db::query("select * from course_lesson where block_id = '$block_id' order by number asc"); ?>
 							<? $pay_lesson_d = db::query("select * from course_pay_lesson where block_id = '$block_id' and user_id = '$user_id' and open = 1"); ?>
 							
 							<?
@@ -181,13 +171,13 @@
 										<? $pay_lesson_itd = db::query("select * from course_pay_lesson where lesson_id = '$lesson_id' and user_id = '$user_id' and open = 1"); ?>
 										<? if (!$block['type'] || (mysqli_num_rows($pay_lesson_itd) && $block['type'] == 'approval')): ?>
 											<? $number++; ?>
-											<a class="coursls_i" <?=($item['open'] && $open?'href="lesson/?id='.$item['id'].'"':'')?>>
+											<a class="coursls_i" <?=($item['open'] && $open && $result > 0?'href="lesson/?id='.$item['id'].'"':'')?>>
 												<div class="coursls_ic">
 													<div class="coursls_in"><?=$number?>. <?=$item['name_'.$lang]?></div>
 												</div>
 												<? if ($open): ?> 
 													<div class="coursls_il <?=($item['open']?'':'coursls_il_lock')?>">
-														<? if ($item['open']): ?> <i class="far fa-play"></i>
+														<? if ($item['open'] && $result > 0): ?> <i class="far fa-play"></i>
 														<? else: ?> <i class="far fa-lock"></i> <? endif ?>
 													</div>
 												<? endif ?>
